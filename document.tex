@@ -34,6 +34,7 @@
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{lem}[thm]{Lemma}
+\newtheorem{lemdef}[thm]{Lemma/Definition}
 \newtheorem{exm}[thm]{Example}
 \newtheorem{defi}[thm]{Definition}
 \renewcommand{\qedsymbol}{$\#$}
@@ -102,7 +103,12 @@
 
 
 \maketitle
-\subsection{Local Dual Space}
+\subsection{The main goal}
+Dedieu and Shub \cite{dedieu2001simple} suggests a numerical criterion for multiple zeros of a system of analytic functions for multiplicity $2$ case. We want to generalize these results into the triple zeros of corank $2$ case for polynomial system.
+
+More precisely, for a square polynomial system $f:\mathbb{C}^n\rightarrow \mathbb{C}^n$ with small $\|f(x)\|,\|Df(x)\|$ and some additional conditions, we want to conclude that $x$ is close to (or a part of) cluster of $3$ points in a disk of some radius $r$ and that we can correspond $(f,x)$ to $(\tilde{f},\tilde{x})$ where $\tilde{f}$ is a polynomial system with a solution $\tilde{x}$ with multiplicity $3$ and $\dim\ker D\tilde{f}(\tilde{x})=2$.
+
+\subsection{Local dual space}
 Let $\mathbf{d}^\mathbf{\alpha}_x :\mathbb{C}[X]\rightarrow \mathbb{C}$ denote the differential functional defined by
 \[\diffop(g)=\frac{1}{\alpha_1!\cdots \alpha_n!}\frac{\partial^{|\mathbf{\alpha}|}g}{\partial {x_1}^{\alpha_1}\cdots \partial{x_n}^{\alpha_n}}(x), \quad g\in \mathbb{C}[X]\]
 where $x\in \mathbb{C}^n$ and $\mathbf{\alpha}\in \mathbb{N}^n$.
@@ -122,7 +128,7 @@ Using these notations, we define
 	\item depth $\rho = \min\left(\left\{k\mid \dim\left(\mathcal{D}_{f,x}^{(k+1)}\setminus\mathcal{D}_{f,x}^{(k)}\right)=0\right\}\right)$,
 	\item multiplicity $\mu = \dim \left(\mathcal{D}_{f,x}^{(\rho)}\right)$.
 \end{enumerate}
-\begin{lem}\cite[Lemma 4.1]{hauenstein2015certifying}
+\begin{lemdef}\cite[Lemma 4.1]{hauenstein2015certifying}
 	Let $f,x,Q,\mathcal{D}_{f,x},\mu, \rho$ be as above. Then, there is a primal-dual basis pair of the local ring $\mathbb{C}[X]/Q$ with the following properties:
 	\begin{itemize}
 		\item The {\it primal basis} of the local ring $\mathbb{C}[X]/Q$ has the form
@@ -131,14 +137,14 @@ Using these notations, we define
 		\item There is a unique {\it dual basis} in $\mathcal{D}_{f,x}$ orthogonal to $B$, i.e., the basis elements are given in the following form:
 		\begin{eqnarray*}
 		\Lambda_0 & = & 1\\
-		\Lambda_1 & = & \frac{1}{\alpha_1}\mathbf{d}_x^{\alpha_1}+\sum\limits_{\substack{|\beta|\leq \rho\\ \beta \notin E}}a_{\alpha_1,\beta}\mathbf{d}^\beta_x\\
+		\Lambda_1 & = & \frac{1}{\alpha_2!}\mathbf{d}_x^{\alpha_2}+\sum\limits_{\substack{|\beta|\leq \rho\\ \beta \notin E}}a_{\alpha_2,\beta}\mathbf{d}^\beta_x\\
 		&\vdots &\\
-		\Lambda_{\mu-1} & = & \frac{1}{\alpha_{\mu}}\mathbf{d}_x^{\alpha_\mu}+\sum\limits_{\substack{|\beta|\leq \rho\\ \beta \notin E}}a_{\alpha_\mu,\beta}\mathbf{d}^\beta_x		
+		\Lambda_{\mu-1} & = & \frac{1}{\alpha_{\mu}!}\mathbf{d}_x^{\alpha_\mu}+\sum\limits_{\substack{|\beta|\leq \rho\\ \beta \notin E}}a_{\alpha_\mu,\beta}\mathbf{d}^\beta_x		
 		\end{eqnarray*}
 		\item We have $0=\ord(\Lambda_0)\leq \cdots \leq \ord(\Lambda_{\delta-1})$, and for all $0\leq k \leq \rho$, we have
 		\[\mathcal{D}_{f,x}^{(k)}=span\{\Lambda_j\mid \ord(\Lambda_j)\leq k\}\]
 	\end{itemize}
-\end{lem}
+\end{lemdef}
 
 %If $x$ is an isolated singular solution of $f$, then $1\leq \kappa\leq n$ and $\rho < \mu <\infty$.
 %Also, we introduce an anti-differentiation operator $\Phi_\sigma:\mathfrak{D}_x\rightarrow\mathfrak{D}_x$ and a differentiation operator $\Psi_\sigma:\mathfrak{D}_x\rightarrow\mathfrak{D}_x$ defined by
@@ -170,7 +176,7 @@ where $\Lambda_0=1$ and $\deg(\Lambda_i)=1$ for $i=1,2$. Also, it is always poss
 
 If we assume this normalized form, then we have $\Lambda_1=d_{n-1}$ and $\Lambda_2=d_n$. Then, we can define the triple zero with corank $2$ in the following way:
 \begin{defi}
- Let $f:\mathbb{C}^n\rightarrow\mathbb{C}^n$ be a polynomial system and suppose that $f(x)=0$. Then, $x$ is a triple zero with corank $2$ for $f$ if
+ Let $f:\mathbb{C}^n\rightarrow\mathbb{C}^n$ be a polynomial system which has a normalized form and suppose that $f(x)=0$. Then, $x$ is a {\it triple zero with corank $2$} for $f$ if
  \begin{itemize}
  	\item[(A)] $\dim\ker Df(x)=2$
  	\item[(B)] $d_k(f_j)=0$ for $k=n-1,n$ and $j=n-1,n$,
@@ -180,18 +186,47 @@ If we assume this normalized form, then we have $\Lambda_1=d_{n-1}$ and $\Lambda
 \end{defi}
 
 
-\subsection{Local separation bound for triple zeros with corank $2$}
+\subsection{Results}
 Let $x$ be a simple triple zero of $f$ and $Df(x)$ has the normalized form \ref{eq:normalizedForm}. Then, we have 
-\[\frac{\partial f_i(x)}{\partial X_j}=0, \frac{\partial f_j(x)}{\partial X_i}=0, \quad 1\leq i\leq n,\quad j=n-1,n\]
+\[\frac{\partial f_i(x)}{\partial X_j}=0,\quad \frac{\partial f_j(x)}{\partial X_i}=0, \quad 1\leq i\leq n,\quad j=n-1,n\]
 and
-\[d_k(f_j)=0, d_k^2(f_j)\ne 0\quad \text{for }j,k=n-1,n.\]
+\[d_k(f_j)=0,\quad d_k^2(f_j)\ne 0\quad \text{for }j,k=n-1,n.\]
 
 Then, we redefine the parameter $\gamma$ in $\alpha$-theory in the following way:
-$$\gamma(f,x)=\max(\hat{\gamma}_2,\gamma_{2,n-1},\gamma_{2,n})$$
+$$\gamma_2(f,x)=\max(\hat{\gamma}_2,\gamma_{2,n-1},\gamma_{2,n})$$
 where
 \[\hat{\gamma}_2(f,x)=\max\left(1,\sup\limits_{k\geq 2}\left\|D\hat{f}(x)^{-1}\frac{D^k\hat{f}(x)}{k!}\right\|^{\frac{1}{k-1}}\right),\]
 and
 \[\gamma_{2,j}=\max\left(1,\sup\limits_{k\geq 2}\left\|\frac{1}{d_j^2(f_j)}\frac{D^k f_j(x)}{k!}\right\|^{\frac{1}{k-1}}\right)\quad \text{ for } j=n-1,n\]
+
+
+Also, we have a universal constant $d\approx0.158921$, and an invertible operator 
+\[\mathcal{A}=\begin{bmatrix}
+\sqrt{3}D\hat{f}(x) & 0 & 0\\
+0 & \frac{1}{\sqrt{3}}d_{n-1}^2(f_{n-1}) & 0 \\
+0 & 0 & \frac{1}{\sqrt{3}}d_{n}^2(f_{n})
+\end{bmatrix}.\]
+
+\begin{thm}\label{thm:tripleRootSeparationBound}
+	Let $x$ be an isolated triple zero with corank $2$ of the polynomial system $f:\mathbb{C}^n\rightarrow\mathbb{C}^n$. Then, if we let $y$ be another zero of $f$, then
+	\[\|y-x\|\geq \frac{d}{2\gamma_2^2}\]
+\end{thm}
+
+\begin{thm}\label{thm:lowerboundfy}
+	Let $x$ be an isolated triple zero with corank $2$ of the polynomial system $f:\mathbb{C}^n\rightarrow \mathbb{C}^n$ with another solution $y$. Then, if $\|y-x\|\leq \frac{d}{4\gamma_2^2}$, then
+	\[\left\|f(y)\right\|\geq \frac{d\|y-x\|^2}{\|\mathcal{A}^{-1}\|}\]
+\end{thm}
+
+
+Now for $R>0$, define
+\begin{equation*}
+d_R(f,g)=\max\limits_{\|y-x\|\leq R}\|f(y)-g(y)\|.
+\end{equation*}
+\begin{thm}\label{thm:multiplicityOfDiffSystem}
+	Let $x$ be an isolated triple zero with corank $2$ of the polynomial system $f:\mathbb{C}^n\rightarrow\mathbb{C}^n$, and $0<R\leq \frac{d}{4\gamma_2^2}$. If $d_R(f,g)<\frac{dR^2}{\|\mathcal{A}^{-1}\|}$, then the sum of the mulitplicities of the zeros of $g$ in $B(x,R)$ is $3$.
+\end{thm}
+
+\subsection{Proofs}
 
 For two nonzero vectors $a,b\in \mathbb{C}^n$, we define their angle by
 \[d_P(a,b)=\arccos\frac{|\left<a,b\right>|}{\|a\|\|b\|}.\]
@@ -216,114 +251,158 @@ Let $y$ be another zero of $f$ and define
 \zeta_{n}
 \end{array}\right).\]
 Then, for $v_{n-1}=(0,\cdots,0,1,0)^\top, v_n=(0,\dots,0,1)$ and $v=v_{n-1}+v_n$, we define $\varphi=d_P(v,w)$ and $\varphi_j(v_j,w)$ for $j=n-1,n$. Then, we have
-\[\|\eta\|=\|w\|\sin\varphi,\quad |\zeta_j|=\|w\|\cos\varphi_j,\quad\text{ and }\|\eta_j\|=\|w\|\sin\varphi_j \quad\text{ for }j=n-1,n\]
-
-\begin{lem}
+\[\|\eta\|=\|w\|\sin\varphi,\quad |\zeta_j|=\|w\|\cos\varphi_j,\quad\text{ and }\|\eta_j\|=\|w\|\sin\varphi_j \quad\text{ for }j=n-1,n.\]
+\begin{lem}\label{lem:sinIneq}
 	For $\varphi_{n-1},\varphi_n,\varphi \in [0,\frac{\pi}{2}]$,
 	\[\sin\varphi_{n-1}+\sin\varphi_n\geq \sin \varphi\]
 \end{lem}
 \begin{proof}
 	Take a square on both sides. Then,
 	\begin{eqnarray*}
-	\left(\sin\varphi_{n-1}+\sin\varphi_n\right)^2& = & \left(2-\cos^2\varphi_{n-1}-\cos^2\varphi_n\right)+2\sqrt{\left(1-\cos^2\varphi_{n-1}\right)\left(1-\cos^2\varphi_n\right)}\\
-	&\geq & \left(2-\cos^2\varphi_{n-1}-\cos^2\varphi_n\right)\\
-	& \geq & 1-\frac{1}{2}\left(\cos^2\varphi_{n-1}+\cos^2\varphi_n\right)+1-\cos\varphi_{n-1}\cos\varphi_n\\
-	& \geq & 1-\frac{1}{2}\left(\cos\varphi_{n-1}+\cos\varphi_n\right)^2\\
-	& \geq & 1-\frac{1}{\|v\|^2}\left(\cos\varphi_{n-1}+\cos\varphi_n\right)^2\\
-	&\geq & 1-\cos^2\varphi=\sin^2\varphi.
+		\left(\sin\varphi_{n-1}+\sin\varphi_n\right)^2& = & \left(2-\cos^2\varphi_{n-1}-\cos^2\varphi_n\right)+2\sqrt{\left(1-\cos^2\varphi_{n-1}\right)\left(1-\cos^2\varphi_n\right)}\\
+		&\geq & \left(2-\cos^2\varphi_{n-1}-\cos^2\varphi_n\right)\\
+		& \geq & 1-\frac{1}{2}\left(\cos^2\varphi_{n-1}+\cos^2\varphi_n\right)+1-\cos\varphi_{n-1}\cos\varphi_n\\
+		& \geq & 1-\frac{1}{2}\left(\cos\varphi_{n-1}+\cos\varphi_n\right)^2\\
+		& \geq & 1-\frac{1}{\|v\|^2}\left(\cos\varphi_{n-1}+\cos\varphi_n\right)^2\\
+		&\geq & 1-\cos^2\varphi=\sin^2\varphi.
 	\end{eqnarray*}
 	Therefore, the claim is proved.
 \end{proof}
-\begin{lem}\cite[Lemma 1]{hao2017computing}
+\begin{lem}\cite[Lemma 1]{hao2017computing}\label{lem:bigAngleCase}
 	If $\gamma_2(f,x)\|w\|\leq \frac{1}{2}$, then
 	\[\left\|D\hat{f}(x)^{-1}\hat{f}(y)\right\|\geq \|w\|\sin\varphi -2\hat{\gamma}_2(f,x)\|w\|^2.\]
 \end{lem}
 \begin{proof}
-	
+\todo[inline]{Just same as the proof in \cite{hao2017computing}.}	
 \end{proof}
-Let 
-\[\mathcal{A}=\begin{bmatrix}
-\sqrt{3}D\hat{f}(x) & 0 & 0\\
-0 & \frac{1}{\sqrt{3}}d_{n-1}^2(f_{n-1}) & 0 \\
-0 & 0 & \frac{1}{\sqrt{3}}d_{n}^2(f_{n})
-\end{bmatrix}.\]
-\begin{lem}
+
+\begin{lem}\label{lem:inverseOperatorLowerbound}
 	If $\gamma_2(f,x)\|w\|\leq \frac{1}{2}$, then 
-	\[\left\|\mathcal{A}^{-1}f(y)\right\|\geq \sum\limits_{j=n-1}^n\left(\left(\frac{1}{2}\cos^2\varphi_{j}-\gamma_{2,j}\cos\varphi_j\sin\varphi_j-\frac{1}{2}\gamma_{2,j}\sin^2\varphi_j\right)\|w\|^2 -2\gamma_{2,j}^2\|w\|^3\right)\]
+	\[\left\|\mathcal{A}^{-1}f(y)\right\|\geq \sum\limits_{j=n-1}^n\left(\left(\frac{1}{2}\cos^2\varphi_{j}-\gamma_{2}\cos\varphi_j\sin\varphi_j-\frac{1}{2}\gamma_{2}\sin^2\varphi_j\right)\|w\|^2 -2\gamma_{2}^2\|w\|^3\right)\]
 \end{lem}
 \begin{proof}
 	Consider the taylor expansion of $f_{n-1}(x)$. Then, we have
-{\footnotesize	\[f_{n-1}(y)=\frac{1}{2}\frac{\partial^2 f_{n-1}(x)}{\partial X_{n-1}^2}\zeta_{n-1}^2+\frac{\partial^2 f_{n-1}(x)}{\partial X_{n-1}\partial \hat{X}_n}\zeta_{n-1}\eta_n+\frac{1}{2}\frac{\partial^2 f_{n-1}(x)}{\partial\hat{X}_n^2}\eta_n^2 +\sum\limits_{k\geq 3}Df_{n-1}(x)^{-1}\frac{D^k\hat{f}_{n-1}(x)}{k!}w^k\]}
-where $\hat{X}_n$ denotes variables $X_1,\dots, X_{n-2}$ and $X_n$.
+	{\footnotesize	\[f_{n-1}(y)=\frac{1}{2}\frac{\partial^2 f_{n-1}(x)}{\partial X_{n-1}^2}\zeta_{n-1}^2+\frac{\partial^2 f_{n-1}(x)}{\partial X_{n-1}\partial \hat{X}_n}\zeta_{n-1}\eta_n+\frac{1}{2}\frac{\partial^2 f_{n-1}(x)}{\partial\hat{X}_n^2}\eta_n^2 +\sum\limits_{k\geq 3}Df_{n-1}(x)^{-1}\frac{D^k\hat{f}_{n-1}(x)}{k!}w^k\]}
+	where $\hat{X}_n$ denotes variables $X_1,\dots, X_{n-2}$ and $X_n$.
 	Dividing by $d_{n-1}^2(f_{n-1})$ on both sides,
-{\footnotesize \[\frac{1}{d_{n-1}^2(f_{n-1})}f_{n-1}(y)=\frac{1}{2}\zeta_{n-1}^2+\frac{1}{d_{n-1}^2(f_{n-1})}\left(\frac{\partial^2 f_{n-1}(x)}{\partial X_{n-1}\partial \hat{X}_n}\zeta_{n-1}\eta_n+\frac{1}{2}\frac{\partial^2 f_{n-1}(x)}{\partial\hat{X}_n^2}\eta_n^2 +\sum\limits_{k\geq 3}Df_{n-1}(x)^{-1}\frac{D^k\hat{f}_{n-1}(x)}{k!}w^k\right).\]}
-Now, note that if we have $i+j=k$, then
-{\footnotesize\[\left\|\frac{\partial^k f_{n-1}(x)}{\partial X_{n-1}^i\partial \hat{X}_n^j}\right\|\leq \left\|D^k f_{n-1}(x)\right\|\]}
-Then, we have
-{\footnotesize
-\begin{eqnarray*}
-\frac{1}{2}\left|\zeta_{n-1}\right|^2 &\leq & \left|\frac{1}{d_{n-1}^2(f_{n-1})}f_{n-1}(y)\right| + \gamma_2|\zeta_{n-1}|\|\eta_n\|+\frac{1}{2}\gamma_2\|\eta_n\|^2 +\sum\limits_{k\geq 3}\gamma_2^{k-1}\|w\|^k\\
-&\leq & \left|\frac{1}{d_{n-1}^2(f_{n-1})}f_{n-1}(y)\right| + \gamma_2|\zeta_{n-1}|\|\eta_n\|+\frac{1}{2}\gamma_2\|\eta_n\|^2 +2\gamma_2^{2}\|w\|^3
-\end{eqnarray*}
-}
-The last inequality comes from the assumption that $\gamma_2(f,x)\|w\|\leq \frac{1}{2}$.
-
-Then, since $|\zeta_{n-1}|=\|w\|\cos\varphi_{n-1}, \|\eta_n\|=\|w\|\sin\varphi_{n-1}$, we have
-{\footnotesize
-	\begin{eqnarray*}
-	\frac{1}{2}\|w\|^2\cos^2\varphi_{n-1}& \leq & \left|\frac{1}{d_{n-1}^2(f_{n-1})}f_{n-1}(y)\right| + \gamma_2\|w\|^2\cos\varphi_{n-1}\sin\varphi_{n-1}+\frac{1}{2}\gamma_2\|w\|^2\sin^2\varphi_{n-1}+2\gamma^2\|w\|^3.
-	\end{eqnarray*}
-}
-It implies that
-{\footnotesize
-\begin{eqnarray*}
-\left(\frac{1}{2}\cos^2\varphi_{n-1}-\gamma_2\cos\varphi_{n-1}\sin\varphi_{n-1}-\frac{1}{2}\gamma_2\sin^2\varphi_{n-1}\right)\|w\|^2-2\gamma_2^2\|w\|^3&\leq & \left|\frac{1}{d_{n-1}^2(f_{n-1})}f_{n-1}(y)\right| .
-\end{eqnarray*}}
-Likewise, we have
-{\footnotesize
-	\begin{eqnarray*}
-		\left(\frac{1}{2}\cos^2\varphi_{n}-\gamma_2\cos\varphi_{n}\sin\varphi_{n}-\frac{1}{2}\gamma_2\sin^2\varphi_{n}\right)\|w\|^2-2\gamma_2^2\|w\|^3&\leq & \left|\frac{1}{d_{n}^2(f_{n})}f_{n}(y)\right|.
+	{\footnotesize \[\frac{1}{d_{n-1}^2(f_{n-1})}f_{n-1}(y)=\frac{1}{2}\zeta_{n-1}^2+\frac{1}{d_{n-1}^2(f_{n-1})}\left(\frac{\partial^2 f_{n-1}(x)}{\partial X_{n-1}\partial \hat{X}_n}\zeta_{n-1}\eta_n+\frac{1}{2}\frac{\partial^2 f_{n-1}(x)}{\partial\hat{X}_n^2}\eta_n^2 +\sum\limits_{k\geq 3}Df_{n-1}(x)^{-1}\frac{D^k\hat{f}_{n-1}(x)}{k!}w^k\right).\]}
+	Now, note that if we have $i+j=k$, then
+	{\footnotesize\[\left\|\frac{\partial^k f_{n-1}(x)}{\partial X_{n-1}^i\partial \hat{X}_n^j}\right\|\leq \left\|D^k f_{n-1}(x)\right\|\]}
+	Then, we have
+	{\footnotesize
+		\begin{eqnarray*}
+			\frac{1}{2}\left|\zeta_{n-1}\right|^2 &\leq & \left|\frac{1}{d_{n-1}^2(f_{n-1})}f_{n-1}(y)\right| + \gamma_2|\zeta_{n-1}|\|\eta_n\|+\frac{1}{2}\gamma_2\|\eta_n\|^2 +\sum\limits_{k\geq 3}\gamma_2^{k-1}\|w\|^k\\
+			&\leq & \left|\frac{1}{d_{n-1}^2(f_{n-1})}f_{n-1}(y)\right| + \gamma_2|\zeta_{n-1}|\|\eta_n\|+\frac{1}{2}\gamma_2\|\eta_n\|^2 +2\gamma_2^{2}\|w\|^3
+		\end{eqnarray*}
+	}
+	The last inequality comes from the assumption that $\gamma_2(f,x)\|w\|\leq \frac{1}{2}$.
+	
+	Then, since $|\zeta_{n-1}|=\|w\|\cos\varphi_{n-1}, \|\eta_n\|=\|w\|\sin\varphi_{n-1}$, we have
+	{\footnotesize
+		\begin{eqnarray*}
+			\frac{1}{2}\|w\|^2\cos^2\varphi_{n-1}& \leq & \left|\frac{1}{d_{n-1}^2(f_{n-1})}f_{n-1}(y)\right| + \gamma_2\|w\|^2\cos\varphi_{n-1}\sin\varphi_{n-1}+\frac{1}{2}\gamma_2\|w\|^2\sin^2\varphi_{n-1}+2\gamma^2\|w\|^3.
+		\end{eqnarray*}
+	}
+	It implies that
+	{\footnotesize
+		\begin{eqnarray*}
+			\left(\frac{1}{2}\cos^2\varphi_{n-1}-\gamma_2\cos\varphi_{n-1}\sin\varphi_{n-1}-\frac{1}{2}\gamma_2\sin^2\varphi_{n-1}\right)\|w\|^2-2\gamma_2^2\|w\|^3&\leq & \left|\frac{1}{d_{n-1}^2(f_{n-1})}f_{n-1}(y)\right| .
 		\end{eqnarray*}}
-Thus,
-$${\footnotesize
-\begin{array}{l}
-\sum\limits_{j=n-1}^n\left(\left(\frac{1}{2}\cos^2\varphi_{j}-\gamma_{2,j}\cos\varphi_j\sin\varphi_j-\frac{1}{2}\gamma_{2,j}\sin^2\varphi_j\right)\|w\|^2 -2\gamma_{2,j}^2\|w\|^3\right)\\
-\leq \left|\frac{1}{d_{n-1}^2(f_{n-1})}f_{n-1}(y)\right| + \left|\frac{1}{d_{n}^2(f_{n})}f_{n}(y)\right| \\
-\leq \sqrt{3}\left\|\left(\begin{array}{c}
-\frac{1}{3}D\hat{f}(x)^{-1}\hat{f}(y)\\
-\frac{1}{d_{n-1}^2(f_{n-1})}f_{n-1}(y)\\
-\frac{1}{d_{n}^2(f_{n})}f_{n}(y)
-\end{array}\right)\right\|\\
-\leq \left\|\left(\begin{array}{ccc}
-\frac{1}{\sqrt{3}}D\hat{f}(x)^{-1} & 0 & 0\\
-0 & \frac{\sqrt{3}}{d_{n-1}^2(f_{n-1})} & 0 \\
-0 & 0 & \frac{\sqrt{3}}{d_{n}^2(f_{n})}
-\end{array}\right)\left(\begin{array}{c}
-\hat{f}(y)\\
-f_{n-1}(y)\\
-f_n(y)
-\end{array}\right)\right\|\\
-\leq \left\|\mathcal{A}^{-1}\left(\begin{array}{c}
-\hat{f}(y)\\
-f_{n-1}(y)\\
-f_n(y)
-\end{array}\right)\right\|=\left\|\mathcal{A}^{-1}f(y)\right\|.
-\end{array}}$$
+		Likewise, we have
+		{\footnotesize
+			\begin{eqnarray*}
+				\left(\frac{1}{2}\cos^2\varphi_{n}-\gamma_2\cos\varphi_{n}\sin\varphi_{n}-\frac{1}{2}\gamma_2\sin^2\varphi_{n}\right)\|w\|^2-2\gamma_2^2\|w\|^3&\leq & \left|\frac{1}{d_{n}^2(f_{n})}f_{n}(y)\right|.
+			\end{eqnarray*}}
+			Thus,
+			$${\footnotesize
+				\begin{array}{l}
+				\sum\limits_{j=n-1}^n\left(\left(\frac{1}{2}\cos^2\varphi_{j}-\gamma_{2,j}\cos\varphi_j\sin\varphi_j-\frac{1}{2}\gamma_{2,j}\sin^2\varphi_j\right)\|w\|^2 -2\gamma_{2,j}^2\|w\|^3\right)\\
+				\leq \left|\frac{1}{d_{n-1}^2(f_{n-1})}f_{n-1}(y)\right| + \left|\frac{1}{d_{n}^2(f_{n})}f_{n}(y)\right| \\
+				\leq \sqrt{3}\left\|\left(\begin{array}{c}
+				\frac{1}{3}D\hat{f}(x)^{-1}\hat{f}(y)\\
+				\frac{1}{d_{n-1}^2(f_{n-1})}f_{n-1}(y)\\
+				\frac{1}{d_{n}^2(f_{n})}f_{n}(y)
+				\end{array}\right)\right\|\\
+				\leq \left\|\left(\begin{array}{ccc}
+				\frac{1}{\sqrt{3}}D\hat{f}(x)^{-1} & 0 & 0\\
+				0 & \frac{\sqrt{3}}{d_{n-1}^2(f_{n-1})} & 0 \\
+				0 & 0 & \frac{\sqrt{3}}{d_{n}^2(f_{n})}
+				\end{array}\right)\left(\begin{array}{c}
+				\hat{f}(y)\\
+				f_{n-1}(y)\\
+				f_n(y)
+				\end{array}\right)\right\|\\
+				\leq \left\|\mathcal{A}^{-1}\left(\begin{array}{c}
+				\hat{f}(y)\\
+				f_{n-1}(y)\\
+				f_n(y)
+				\end{array}\right)\right\|=\left\|\mathcal{A}^{-1}f(y)\right\|.
+				\end{array}}$$
+		\end{proof}
+		\begin{lem}
+			Let $d\approx 0.158921$ be the positive root of the equation 
+			\begin{equation*}
+			(1-d^2)-2d\sqrt{1-d^2}-d^2 -4d=0.
+			\end{equation*}
+			Let $\theta$ be defined by 
+			\begin{equation*}
+			\sin \theta=\frac{d}{\gamma_2}.
+			\end{equation*}
+			Then, if $\gamma_2(f,x)\|w\|\leq \frac{1}{2}$, then for any $y\in \mathbb{C}^n$, either
+			\[\theta\leq \varphi\leq \frac{\pi}{2}\text{ and }\left\|\mathcal{A}^{-1}f(y)\right\|\geq \frac{2}{\sqrt{3}}\gamma_2\|w\|\left(\frac{\sin\theta}{2\gamma_2}-\|w\|\right),\]
+			or
+			\[0\leq \varphi \leq \theta \text{ and }\left\|\mathcal{A}^{-1}f(y)\right\|\geq 4\gamma_2^2\|w\|\left(\frac{\sin\theta}{2\gamma_2}-\|w\|\right).\]
+		\end{lem}
+		\begin{proof}
+			Let $\theta\leq \varphi\leq \frac{\pi}{2}$. Then, by lemma \ref{lem:bigAngleCase}, we have
+			{\footnotesize
+				\begin{eqnarray*}
+					\sqrt{3}\left\|\mathcal{A}^{-1}f(y)\right\| & = &  \left\|\left(\begin{array}{ccc}
+						\frac{1}{\sqrt{3}}D\hat{f}(x)^{-1} & 0 & 0\\
+						0 & \frac{\sqrt{3}}{d_{n-1}^2(f_{n-1})} & 0 \\
+						0 & 0 & \frac{\sqrt{3}}{d_{n}^2(f_{n})}
+					\end{array}\right)\right\|\geq \left\|D\hat{f}(x)^{-1}\hat{f}(y)\right\|\\
+					&\geq & \|w\|\sin\varphi -2\hat{\gamma}_2(f,x)\|w\|^2 \geq 2\gamma_2\|w\|\left(\frac{\sin\theta}{2\gamma_2}-\|w\|\right)
+				\end{eqnarray*}}
+				Now, let $0\leq \varphi \leq \theta$. By lemma \ref{lem:inverseOperatorLowerbound}, we have
+				{\footnotesize
+					\[\left\|\mathcal{A}^{-1}f(y)\right\|\geq \sum\limits_{j=n-1}^n\left(\left(\frac{1}{2}\cos^2\varphi_{j}-\gamma_{2}\cos\varphi_j\sin\varphi_j-\frac{1}{2}\gamma_{2}\sin^2\varphi_j\right)\|w\|^2 -2\gamma_{2}^2\|w\|^3\right).\]}
+				Let 
+				{\footnotesize
+					\[h(\varphi) = \frac{\cos^2 \varphi - 2\gamma_2 \cos\varphi \sin\varphi - \gamma_2\sin^2\varphi}{4\gamma_2^2}.\]}
+				We claim that 
+				\[h(\theta)\geq \frac{\sin\theta}{\gamma_2}.\]
+				Since $\sin\theta=\frac{d}{\gamma_2}$, it is enough to show that
+				{\footnotesize
+					\begin{equation}\label{eq:h_inequality}
+					\left(1-\frac{d^2}{\gamma_2^2}\right)-2d\sqrt{1-\frac{d^2}{\gamma_2^2}}-\frac{d^2}{\gamma_2}-4d\geq 0.
+					\end{equation}}
+				For any fixed value of $d\in \left[0,\frac{1}{2}\right]$, the function of $\gamma_2$ in (\ref{eq:h_inequality}) is increasing when $\gamma_2\geq 1$\todo{check}. Therefore, it suffices to check this inequality is true for $\gamma_2=1$. Since, $d\approx 0.158921$ is the smallest positive root of
+				\[(1-d^2)-2d\sqrt{1-d^2}-d^2-4d\]
+				which lies in $\left[0,\frac{1}{2}\right]$, we have $h(\theta)\geq\frac{\sin\theta}{\gamma_2}$.
+				
+				Moreover, since $\gamma_2\geq 1$, we have $\sin \theta \leq d$, and so $\theta \leq \arcsin d$. Since $h(\varphi)$ is nonnegative and decreasing for $\varphi\in \left[0,\arcsin d\right]$, if $0\leq \varphi \leq \theta$, then $h(\varphi)\geq h(\theta)\geq\frac{\sin \theta}{\gamma_2}$. Therefore, by lemma \ref{lem:sinIneq} and \ref{lem:inverseOperatorLowerbound},
+				{\footnotesize \begin{eqnarray*}
+						\left\|\mathcal{A}^{-1}f(y)\right \|&\geq& \sum\limits_{j=n-1}^n 2\gamma_2^2\|w\|^2\left(h(\varphi_{j})-\|w\|\right)\geq 2\gamma_2^2\|w\|^2\left(\frac{\sin\varphi_{n-1}+\sin\varphi_{n}}{\gamma_2}-2\|w\|\right)\\
+						& \geq & 4\gamma_2^2\|w\|^2\left(\frac{\sin\varphi}{2\gamma_2}-\|w\|\right)
+					\end{eqnarray*}}
+				\end{proof}
+\begin{proof}[Proof of Theorem \ref{thm:tripleRootSeparationBound}]
+	Let $w=y-x$ as above. Since $f(y)=0$, if $\gamma_2\|w\|\leq \frac{1}{2}$, then by lemma \ref{lem:inverseOperatorLowerbound}, we have
+	\[\|y-x\|=\|w\|\geq\frac{\sin\theta}{2\gamma_2}=\frac{d}{2\gamma_2^2} .\]
+	In the case of $\gamma_2\|w\|\geq \frac{1}{2}$, the claim holds because $d<1$ and $\gamma_2\geq 1$.
 \end{proof}
-\begin{lem}
-	Let $d\approx 0.286591$ be the positive root of the equation 
-	\begin{equation*}
-	(1-d^2)-2d\sqrt{1-d^2}-d^2 -d=0.
-	\end{equation*}
-	Let $\theta$ be defined by 
-	\begin{equation*}
-	\sin \theta=\frac{d}{\gamma_2}.
-	\end{equation*}
-	Then, if $\gamma_2(f,x)\|w\|\leq \frac{1}{2}$, then for any $y\in \mathbb{C}^n$, either
-	\[\theta\leq \varphi\leq \frac{\pi}{2}\text{ and }\left\|\mathcal{A}^{-1}f(y)\right\|\geq \sqrt{2}\gamma_2\|w\|\left(\frac{\sin\theta}{2\gamma_2}-\|w\|\right),\]
-	or
-	\[0\leq \theta \frac{\pi}{2}\text{ and }\left\|\mathcal{A}^{-1}f(y)\right\|\geq 2\gamma_2\|w\|\left(\frac{\sin\theta}{2\gamma_2}-\|w\|\right).\]
-\end{lem}
+\begin{proof}[Proof of Theorem \ref{thm:lowerboundfy}]
+	Note that 
+	\[\|w\|=\|y-x\|\leq \frac{d}{4\gamma_2^2}=\frac{\sin\theta}{4\gamma_2}.\]
+	Therefore, by lemma \ref{lem:inverseOperatorLowerbound}, we have
+	\[\left\|\mathcal{A}^{-1}f(y)\right\|\geq 4\gamma_2^2\|w\|^2\left(\frac{\sin\theta}{2\gamma_2}-\|w\|\right)\geq4\gamma_2^2\|w\|^2\frac{\sin\theta}{4\gamma_2}=d\|w\|^2\]
+\end{proof}
+\begin{proof}[Proof of Theorem \ref{thm:multiplicityOfDiffSystem}]
+	Note that for any $y$ satisfying $\|y-x\|=R$, we have
+	\[\|f(y)-g(y)\|\leq d_R(f,g)<\frac{dR^2}{\left\|\mathcal{A}^{-1}\right\|}\leq \|f(y)\|\]
+	by theorem \ref{thm:lowerboundfy}. Then, by Rouch\'e's theorem, $f$ and $g$ have the same number of zeros inside $B(x,R)$. Since $x$ is the only root of $f$ inside $B(x,R)$ by theorem \ref{thm:tripleRootSeparationBound}, $g$ has three zeros in $B(x,R)$.
+\end{proof}
 \bibliography{ref.bib}
 \bibliographystyle{plain}
 	
