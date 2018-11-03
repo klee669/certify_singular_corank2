@@ -97,14 +97,14 @@
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\diffop}{\mathbf{d}^\mathbf{\alpha}_x}
 
-\title{Computing triple zeros of polynomial system : corank 2 case}
+\title{Computing simple triple zeros of polynomial system : corank 2 case}
 
 \begin{document}
 
 
 \maketitle
 \subsection{The main goal}
-Dedieu and Shub \cite{dedieu2001simple} suggests a numerical criterion for multiple zeros of a system of analytic functions for multiplicity $2$ case. We want to generalize these results into the triple zeros of corank $2$ case for polynomial system.
+Dedieu and Shub \cite{dedieu2001simple} suggests a numerical criterion for multiple zeros of a system of analytic functions for multiplicity $2$ case. We want to generalize these results into the simple triple zeros of corank $2$ case for polynomial system.
 
 More precisely, for a square polynomial system $f:\mathbb{C}^n\rightarrow \mathbb{C}^n$ with small $\|f(x)\|,\|Df(x)\|$ and some additional conditions, we want to conclude that $x$ is close to (or a part of) cluster of $3$ points in a disk of some radius $r$ and that we can correspond $(f,x)$ to $(\tilde{f},\tilde{x})$ where $\tilde{f}$ is a polynomial system with a solution $\tilde{x}$ with multiplicity $3$ and $\dim\ker D\tilde{f}(\tilde{x})=2$.
 
@@ -133,7 +133,7 @@ Using these notations, we define
 	\begin{itemize}
 		\item The {\it primal basis} of the local ring $\mathbb{C}[X]/Q$ has the form
 		\[B:=\{(X-x)^{\alpha_1},\dots, (X-x)^{\alpha_\mu}\}.\]
-		We can assume that $\alpha_1=0$ and that the monomials in $B$ are connected to $1$ (see \cite{mourrain1999new}). Let $E:=\{\alpha_1,\dots, \alpha_\mu\}$ be the set of exponents in $B$.
+		We can assume that $\alpha_1=0$ and that the monomials in $B$ are {\it connected to $1$} (see \cite{mourrain1999new}). Let $E:=\{\alpha_1,\dots, \alpha_\mu\}$ be the set of exponents in $B$.
 		\item There is a unique {\it dual basis} in $\mathcal{D}_{f,x}$ orthogonal to $B$, i.e., the basis elements are given in the following form:
 		\begin{eqnarray*}
 		\Lambda_0 & = & 1\\
@@ -141,24 +141,13 @@ Using these notations, we define
 		&\vdots &\\
 		\Lambda_{\mu-1} & = & \frac{1}{\alpha_{\mu}!}\mathbf{d}_x^{\alpha_\mu}+\sum\limits_{\substack{|\beta|\leq \rho\\ \beta \notin E}}a_{\alpha_\mu,\beta}\mathbf{d}^\beta_x		
 		\end{eqnarray*}
-		\item We have $0=\ord(\Lambda_0)\leq \cdots \leq \ord(\Lambda_{\delta-1})$, and for all $0\leq k \leq \rho$, we have
+		\item We have $0=\ord(\Lambda_0)\leq \cdots \leq \ord(\Lambda_{\mu-1})$, and for all $0\leq k \leq \rho$, we have
 		\[\mathcal{D}_{f,x}^{(k)}=span_\CC\{\Lambda_j\mid \ord(\Lambda_j)\leq k\}\]
 	\end{itemize}
 \end{lemdef}
 
-%If $x$ is an isolated singular solution of $f$, then $1\leq \kappa\leq n$ and $\rho < \mu <\infty$.
-%Also, we introduce an anti-differentiation operator $\Phi_\sigma:\mathfrak{D}_x\rightarrow\mathfrak{D}_x$ and a differentiation operator $\Psi_\sigma:\mathfrak{D}_x\rightarrow\mathfrak{D}_x$ defined by
-%\[\Phi_\sigma(d_1^{\alpha_1}\cdots d_n^{\alpha_n})=\left\{\begin{array}{ll}
-%d_1^{\alpha_1}\cdots d_\sigma ^{\alpha_\sigma -1}\cdots d_n^{\alpha_n}, & \text{if }\alpha_\sigma>0\\
-%0, & \text{otherwise}.
-%\end{array}\right.\]
-%and
-%\[\Psi_\sigma(d_1^{\alpha_1}\cdots d_n^{\alpha_n})=\left\{\begin{array}{ll}
-%d_\sigma^{\alpha_\sigma+1}\cdots d_n^{\alpha_n}, & \text{if }\alpha_1=\cdots =\alpha_{\sigma-1}=0,\\
-%0, & \text{otherwise}.
-%\end{array}\right.\]
 
-We deal with triple zeros satisfying $f(x)=0, \dim \ker Df(x)=2$. Therefore, $\kappa=2, \mu=2, \rho =1$.
+We deal with simple triple zeros satisfying $f(x)=0, \dim \ker Df(x)=2$. Therefore, $\kappa=2, \mu=3, \rho =1$.
 %\[\dim\left(\mathcal{D}_{f,x}^{(1)}\setminus\mathcal{D}_{f,x}^{(0)}\right)=2.\]
 It means that we have 
 \[\mathcal{D}_{f,x}=span_\mathbb{C}\{\Lambda_0,\Lambda_1,\Lambda_2\}\]
@@ -170,17 +159,17 @@ where $\Lambda_0=1$ and $\deg(\Lambda_i)=1$ for $i=1,2$. Also, it is always poss
 	0 & 0 & 0 \\
 	0 & 0 & 0
 	\end{bmatrix},\label{eq:normalizedForm}\]
-	where $D\hat{f}(x)$ is the nonsingular Jacobian matrix of polynomials $\hat{f}=\{f_1,\dots, f_{n-2}\}$ with respect to $X_1,\dots, X_{n-2}$.
+	where $D\hat{f}(x)$ is the nonsingular Jacobian matrix of polynomials $\hat{f}=\{f_1,\dots, f_{n-2}\}$ with respect to $\hat{X}=\{X_1,\dots, X_{n-2}\}$.
 \end{defi}
 
 
-If we assume this normalized form, then we are able to have elements of dual basis $\Lambda_1=d_{n-1}$ and $\Lambda_2=d_n$. Then, we can define the triple zero with corank $2$ in the following way:
+If we assume this normalized form, then we are able to have elements of dual basis $\Lambda_1=d_{n-1}$ and $\Lambda_2=d_n$. Then, we can define the simple triple zero with corank $2$ in the following way:
 \begin{defi}
- Let $f:\mathbb{C}^n\rightarrow\mathbb{C}^n$ be a polynomial system which has a normalized form and suppose that $f(x)=0$. Then, $x$ is a {\it triple zero with corank $2$} for $f$ if
+ Let $f:\mathbb{C}^n\rightarrow\mathbb{C}^n$ be a polynomial system which has a normalized form and suppose that $f(x)=0$. Then, $x$ is a {\it simple triple zero with corank $2$} for $f$ if
  \begin{itemize}
  	\item[(A)] $\dim\ker Df(x)=2$
  	\item[(B)] $d_k(f_j)=0$ for $k=n-1,n$ and $j=n-1,n$,
- 	\item[(C)] $d_k^2(f_j)\ne0$ for $k=n-1,n$ and $j=n-1,n$.
+ 	\item[(C)] $d_{n-1}^2(f_{n-1})\ne0$ and $d_{n}^2(f_{n})\ne0$.
  	\end{itemize}
 	
 \end{defi}
@@ -207,13 +196,14 @@ Also, we have a universal constant $d\approx0.158921$, and an invertible operato
 0 & 0 & \frac{1}{\sqrt{3}}d_{n}^2(f_{n})
 \end{bmatrix}.\]
 
+From now on, $\|\cdot \|$ is the usual Euclidean norm.
 \begin{thm}\label{thm:tripleRootSeparationBound}
-	Let $x$ be an isolated triple zero with corank $2$ of the polynomial system $f:\mathbb{C}^n\rightarrow\mathbb{C}^n$. Then, if we let $y$ be another zero of $f$, then
+	Let $x$ be an isolated simple triple zero with corank $2$ of the polynomial system $f:\mathbb{C}^n\rightarrow\mathbb{C}^n$. Then, if we let $y$ be another zero of $f$, then
 	\[\|y-x\|\geq \frac{d}{2\gamma_2^2}\]
 \end{thm}
 
 \begin{thm}\label{thm:lowerboundfy}
-	Let $x$ be an isolated triple zero with corank $2$ of the polynomial system $f:\mathbb{C}^n\rightarrow \mathbb{C}^n$ with another solution $y$. Then, if $\|y-x\|\leq \frac{d}{4\gamma_2^2}$, then
+	Let $x$ be an isolated simple triple zero with corank $2$ of the polynomial system $f:\mathbb{C}^n\rightarrow \mathbb{C}^n$ with another solution $y$. Then, if $\|y-x\|\leq \frac{d}{4\gamma_2^2}$, then
 	\[\left\|f(y)\right\|\geq \frac{d\|y-x\|^2}{\|\mathcal{A}^{-1}\|}\]
 \end{thm}
 
@@ -223,7 +213,7 @@ Now for $R>0$, define
 d_R(f,g)=\max\limits_{\|y-x\|\leq R}\|f(y)-g(y)\|.
 \end{equation*}
 \begin{thm}\label{thm:multiplicityOfDiffSystem}
-	Let $x$ be an isolated triple zero with corank $2$ of the polynomial system $f:\mathbb{C}^n\rightarrow\mathbb{C}^n$, and $0<R\leq \frac{d}{4\gamma_2^2}$. If $d_R(f,g)<\frac{dR^2}{\|\mathcal{A}^{-1}\|}$, then the sum of the mulitplicities of the zeros of $g$ in $B(x,R)$ is $3$.
+	Let $x$ be an isolated simple triple zero with corank $2$ of the polynomial system $f:\mathbb{C}^n\rightarrow\mathbb{C}^n$, and $0<R\leq \frac{d}{4\gamma_2^2}$. If $d_R(f,g)<\frac{dR^2}{\|\mathcal{A}^{-1}\|}$, then the sum of the mulitplicities of the zeros of $g$ in $B(x,R)$ is $3$.
 \end{thm}
 
 Now, we will state the main theorem. Let $f:\mathbb{C}^n\rightarrow\mathbb{C}^n$ be any polynomial system and $x$ be any point in $\CC^n$ such that $D\hat{f}(x)$ is invertible and $d_j^2(f_i)\ne 0$ for all $i,j=n-1,n$. We define a $n\times n$-matrix 
@@ -253,17 +243,18 @@ Let $y$ be another zero of $f$ and define
 \eta_1\\
 \vdots\\
 \eta_{n-2}
-\end{array}\right),\quad\eta^{(n-1)}=\left(\begin{array}{c}
+\end{array}\right),\quad\eta_{n-1}=\left(\begin{array}{c}
 \eta\\
 \zeta_{n-1}\\
 0
-\end{array}\right),\quad \eta^{(n)}=\left(\begin{array}{c}
+\end{array}\right),\quad \eta_{n}=\left(\begin{array}{c}
 \eta\\
 0\\
 \zeta_{n}
 \end{array}\right).\]
-Then, for $v_{n-1}=(0,\cdots,0,1,0)^\top, v_n=(0,\dots,0,1)$ and $v=v_{n-1}+v_n$, we define $\varphi=d_P(v,w)$ and $\varphi_j(v_j,w)$ for $j=n-1,n$. Then, we have
-\[\|\eta\|=\|w\|\sin\varphi,\quad |\zeta_j|=\|w\|\cos\varphi_j,\quad\text{ and }\|\eta_j\|=\|w\|\sin\varphi_j \quad\text{ for }j=n-1,n.\]
+Then, for $v_{n-1}=(0,\cdots,0,1,0)^\top, v_n=(0,\dots,0,1)^\top$ and $v=\zeta_{n-1}v_{n-1}+\zeta_n v_n$, we define $\varphi=d_P(v,w)$ and $\varphi_j=d_P(v_j,w)$ for $j=n-1,n$. Then, we have
+\[\|\eta\|=\|w\|\sin\varphi,\quad |\zeta_j|=\|w\|\cos\varphi_j,\quad\text{ and }\quad\|\eta_j\|=\|w\|\sin\varphi_j \quad\text{ for }j=n-1,n.\]
+Also, we have $\cos^2\varphi = \cos ^2\varphi_{n-1}+\cos^2\varphi_n$.
 \begin{lem}\label{lem:sinIneq}
 	For $\varphi_{n-1},\varphi_n,\varphi \in [0,\frac{\pi}{2}]$,
 	\[\sin\varphi_{n-1}+\sin\varphi_n\geq \sin \varphi\]
@@ -273,10 +264,9 @@ Then, for $v_{n-1}=(0,\cdots,0,1,0)^\top, v_n=(0,\dots,0,1)$ and $v=v_{n-1}+v_n$
 	\begin{eqnarray*}
 		\left(\sin\varphi_{n-1}+\sin\varphi_n\right)^2& = & \left(2-\cos^2\varphi_{n-1}-\cos^2\varphi_n\right)+2\sqrt{\left(1-\cos^2\varphi_{n-1}\right)\left(1-\cos^2\varphi_n\right)}\\
 		&\geq & \left(2-\cos^2\varphi_{n-1}-\cos^2\varphi_n\right)\\
-		& \geq & 1-\frac{1}{2}\left(\cos^2\varphi_{n-1}+\cos^2\varphi_n\right)+1-\cos\varphi_{n-1}\cos\varphi_n\\
-		& \geq & 1-\frac{1}{2}\left(\cos\varphi_{n-1}+\cos\varphi_n\right)^2\\
-		& \geq & 1-\frac{1}{\|v\|^2}\left(\cos\varphi_{n-1}+\cos\varphi_n\right)^2\\
-		&\geq & 1-\cos^2\varphi=\sin^2\varphi.
+		& \geq & 2-\cos^2 \varphi\\
+		& \geq & 1-\cos^2 \varphi\\
+		& = & \sin^2 \varphi
 	\end{eqnarray*}
 	Therefore, the claim is proved.
 \end{proof}
@@ -426,7 +416,7 @@ Then, for $v_{n-1}=(0,\cdots,0,1,0)^\top, v_n=(0,\dots,0,1)$ and $v=v_{n-1}+v_n$
 	d_j(f_j) = \frac{\partial f_{j}}{\partial X_j} - \frac{\partial f_{j}}{\partial X_j} = 0,\\
 	d_j^2(f_j) = \frac{\partial^2 f_{j}}{\partial X_j^2}\ne 0.
 	\end{eqnarray*}
-	It means that $Dg(x)$ satisfies the normalized form, and $x$ is a triple root with corank $2$ for $g$. Now, let $R=\frac{d}{4\gamma_2^2}$, then we find that 
+	It means that $Dg(x)$ satisfies the normalized form, and $x$ is a simple triple root with corank $2$ for $g$. Now, let $R=\frac{d}{4\gamma_2^2}$, then we find that 
 	\begin{eqnarray*}
 	d_R(g,f)&=&\max\limits_{\|y-x\|\leq R}\|g(y)-f(y)\|\\
 	& \leq & \|f(x)\|+\|H\|R\\
