@@ -230,7 +230,7 @@ and
 \[\gamma_{\kappa,j}=\max\left(1,\sup\limits_{k\geq 2}\left\|\frac{1}{d_j^2(f_j)}\frac{D^k f_j(x)}{k!}\right\|^{\frac{1}{k-1}}\right)\quad \text{ for } j=n-(\mu-2),\dots,n\]
 
 
-Also, we have a universal constant $d\approx 0.158921$, and an invertible operator 
+Also, we have a universal constant $d\approx 0.120031$, and an invertible operator 
 \[\mathcal{A}=\begin{bmatrix}
 \sqrt{\mu}D\hat{f}(x) & 0 & 0 & \cdots & 0\\
 0 & \frac{1}{\sqrt{\mu}}d_{n-(\mu-2)}^2(f_{n-(\mu-2)}) &0 & \cdots & 0 \\
@@ -341,11 +341,11 @@ Then, applying triangular inequality and the assumption $\gamma_\kappa(f,x)\|w\|
 
 \begin{lem}\label{lem:inverseOperatorLowerbound}
 	If $\gamma_\kappa(f,x)\|w\|\leq \frac{1}{2}$, then 
-	\[\left\|\mathcal{A}^{-1}f(y)\right\|\geq \sum\limits_{j=n-(\mu-2)}^n\left(\left(\frac{1}{2}\cos^2\varphi_{j}-\gamma_{\kappa}\cos\varphi_j\sin\varphi_j-\frac{1}{2}\gamma_{\kappa}\sin^2\varphi_j\right)\|w\|^2 -2\gamma_{\kappa}^2\|w\|^3\right)\]
+	\[\left\|\mathcal{A}^{-1}f(y)\right\|\geq \sum\limits_{j=n-(\mu-2)}^n\left(\left(\frac{1}{2}\cos^2\varphi_{j}-2\gamma_{\kappa}\cos\varphi_j\sin\varphi_j-\gamma_{\kappa}\sin^2\varphi_j\right)\|w\|^2 -2\gamma_{\kappa}^2\|w\|^3\right)\]
 \end{lem}
 \begin{proof}
 	Let us denote $\hat{X}_n=\{X_1,\dots, X_{n-1}\}$ the set of all variables except $X_n$. Consider the Taylor expansion of $f_{n}(x)$. Then, we have
-	{\footnotesize	\[f_{n}(y)=\frac{1}{2}\frac{\partial^2 f_{n}(x)}{\partial X_{n}^2}\zeta_{n}^2+\frac{\partial^2 f_{n}(x)}{\partial X_{n}\partial \hat{X}_n}\zeta_{n}\eta_n+\frac{1}{2}\frac{\partial^2 f_{n}(x)}{\partial\hat{X}_n^2}\eta_n^2 +\sum\limits_{k\geq 3}Df_{n}(x)^{-1}\frac{D^k\hat{f}_{n}(x)}{k!}w^k\]}
+	{\footnotesize	\[f_{n}(y)=\frac{1}{2}\frac{\partial^2 f_{n}(x)}{\partial X_{n}^2}\zeta_{n}^2+\frac{\partial^2 f_{n}(x)}{\partial X_{n}\partial \hat{X}_n}\zeta_{n}\eta_n+\frac{1}{2}\frac{\partial^2 f_{n}(x)}{\partial\hat{X}_n^2}\eta_n^2 +\sum\limits_{k\geq 3}Df_{n}(x)^{-1}\frac{D^kf_{n}(x)}{k!}w^k\]}
 	Dividing by $d_{n}^2(f_{n})$ on both sides,
 	{\footnotesize \[\frac{1}{d_{n}^2(f_{n})}f_{n}(y)=\frac{1}{2}\zeta_{n}^2+\frac{1}{d_{n}^2(f_{n})}\left(\frac{\partial^2 f_{n}(x)}{\partial X_{n}\partial \hat{X}_n}\zeta_{n}\eta_n+\frac{1}{2}\frac{\partial^2 f_{n}(x)}{\partial\hat{X}_n^2}\eta_n^2 +\sum\limits_{k\geq 3}Df_{n}(x)^{-1}\frac{D^k\hat{f}_{n}(x)}{k!}w^k\right).\]}
 	Now, note that if we have $i+j=k$, then
@@ -353,8 +353,8 @@ Then, applying triangular inequality and the assumption $\gamma_\kappa(f,x)\|w\|
 	Then, we have
 	{\footnotesize
 		\begin{eqnarray*}
-			\frac{1}{2}\left|\zeta_{n}\right|^2 &\leq & \left|\frac{1}{d_{n}^2(f_{n})}f_{n}(y)\right| + \gamma_\kappa|\zeta_{n}|\|\eta_n\|+\frac{1}{2}\gamma_\kappa\|\eta_n\|^2 +\sum\limits_{k\geq 3}\gamma_\kappa^{k-1}\|w\|^k\\
-			&\leq & \left|\frac{1}{d_{n}^2(f_{n})}f_{n}(y)\right| + \gamma_\kappa|\zeta_{n}|\|\eta_n\|+\frac{1}{2}\gamma_\kappa\|\eta_n\|^2 +2\gamma_\kappa^{2}\|w\|^3
+			\frac{1}{2}\left|\zeta_{n}\right|^2 &\leq & \left|\frac{1}{d_{n}^2(f_{n})}f_{n}(y)\right| + 2\gamma_\kappa|\zeta_{n}|\|\eta_n\|+\gamma_\kappa\|\eta_n\|^2 +\sum\limits_{k\geq 3}\gamma_\kappa^{k-1}\|w\|^k\\
+			&\leq & \left|\frac{1}{d_{n}^2(f_{n})}f_{n}(y)\right| + 2\gamma_\kappa|\zeta_{n}|\|\eta_n\|+\gamma_\kappa\|\eta_n\|^2 +2\gamma_\kappa^{2}\|w\|^3
 		\end{eqnarray*}
 	}
 	The last inequality comes from the assumption that $\gamma_\kappa(f,x)\|w\|\leq \frac{1}{2}$.
@@ -362,23 +362,23 @@ Then, applying triangular inequality and the assumption $\gamma_\kappa(f,x)\|w\|
 	Then, since $|\zeta_{n}|=\|w\|\cos\varphi_{n}, \|\eta_n\|=\|w\|\sin\varphi_{n}$, we have
 	{\footnotesize
 		\begin{eqnarray*}
-			\frac{1}{2}\|w\|^2\cos^2\varphi_{n}& \leq & \left|\frac{1}{d_{n}^2(f_{n})}f_{n}(y)\right| + \gamma_\kappa\|w\|^2\cos\varphi_{n}\sin\varphi_{n}+\frac{1}{2}\gamma_\kappa\|w\|^2\sin^2\varphi_{n}+2\gamma_\kappa^2\|w\|^3.
+			\frac{1}{2}\|w\|^2\cos^2\varphi_{n}& \leq & \left|\frac{1}{d_{n}^2(f_{n})}f_{n}(y)\right| + 2\gamma_\kappa\|w\|^2\cos\varphi_{n}\sin\varphi_{n}+\gamma_\kappa\|w\|^2\sin^2\varphi_{n}+2\gamma_\kappa^2\|w\|^3.
 		\end{eqnarray*}
 	}
 	It implies that
 	{\footnotesize
 		\begin{eqnarray*}
-			\left(\frac{1}{2}\cos^2\varphi_{n}-\gamma_\kappa\cos\varphi_{n}\sin\varphi_{n}-\frac{1}{2}\gamma_\kappa\sin^2\varphi_{n}\right)\|w\|^2-2\gamma_\kappa^2\|w\|^3&\leq & \left|\frac{1}{d_{n}^2(f_{n})}f_{n}(y)\right| .
+			\left(\frac{1}{2}\cos^2\varphi_{n}-2\gamma_\kappa\cos\varphi_{n}\sin\varphi_{n}-\gamma_\kappa\sin^2\varphi_{n}\right)\|w\|^2-2\gamma_\kappa^2\|w\|^3&\leq & \left|\frac{1}{d_{n}^2(f_{n})}f_{n}(y)\right| .
 		\end{eqnarray*}}
 		Likewise, we have for $j=n-(\mu-2),\dots, n$
 		{\footnotesize
 			\begin{eqnarray*}
-				\left(\frac{1}{2}\cos^2\varphi_{j}-\gamma_\kappa\cos\varphi_{j}\sin\varphi_{j}-\frac{1}{2}\gamma_\kappa\sin^2\varphi_{j}\right)\|w\|^2-2\gamma_\kappa^2\|w\|^3&\leq & \left|\frac{1}{d_{j}^2(f_{j})}f_{j}(y)\right|.
+				\left(\frac{1}{2}\cos^2\varphi_{j}-2\gamma_\kappa\cos\varphi_{j}\sin\varphi_{j}-\gamma_\kappa\sin^2\varphi_{j}\right)\|w\|^2-2\gamma_\kappa^2\|w\|^3&\leq & \left|\frac{1}{d_{j}^2(f_{j})}f_{j}(y)\right|.
 			\end{eqnarray*}}
 			Thus,
 			$${\footnotesize
 				\begin{array}{l}
-				\sum\limits_{j=n-(\mu-2)}^n\left(\left(\frac{1}{2}\cos^2\varphi_{j}-\gamma_{\kappa}\cos\varphi_j\sin\varphi_j-\frac{1}{2}\gamma_{\kappa}\sin^2\varphi_j\right)\|w\|^2 -2\gamma_{\kappa}^2\|w\|^3\right)\\
+				\sum\limits_{j=n-(\mu-2)}^n\left(\left(\frac{1}{2}\cos^2\varphi_{j}-2\gamma_{\kappa}\cos\varphi_j\sin\varphi_j-\gamma_{\kappa}\sin^2\varphi_j\right)\|w\|^2 -2\gamma_{\kappa}^2\|w\|^3\right)\\
 				\leq \sum\limits_{j=n-(\mu-2)}^n \left|\frac{1}{d_{j}^2(f_{j})}f_{j}(y)\right| \\
 				\leq \sqrt{\mu}\left\|\left(\begin{array}{c}
 				\frac{1}{\mu}D\hat{f}(x)^{-1}\hat{f}(y)\\
@@ -408,9 +408,9 @@ Then, applying triangular inequality and the assumption $\gamma_\kappa(f,x)\|w\|
 				\end{array}}$$
 		\end{proof}
 		\begin{lem}\label{lem:operatorlowerbound}
-			Let $d\approx 0.158921$ be the positive root of the equation 
+			Let $d\approx 0.120031$ be the positive root of the equation 
 			\begin{equation*}
-			(1-d^2)-2d\sqrt{1-d^2}-d^2 -4d=0.
+			(1-d^2)-4d\sqrt{1-d^2}-2d^2 -4d=0.
 			\end{equation*}
 			Let $\theta$ be defined by 
 			\begin{equation*}
@@ -430,19 +430,19 @@ Then, applying triangular inequality and the assumption $\gamma_\kappa(f,x)\|w\|
 				\end{eqnarray*}}
 				Now, let $0\leq \varphi \leq \theta$. By lemma \ref{lem:inverseOperatorLowerbound}, we have
 				{\footnotesize
-					\[\left\|\mathcal{A}^{-1}f(y)\right\|\geq \sum\limits_{j=n-(\mu-2)}^n\left(\left(\frac{1}{2}\cos^2\varphi_{j}-\gamma_{\kappa}\cos\varphi_j\sin\varphi_j-\frac{1}{2}\gamma_{\kappa}\sin^2\varphi_j\right)\|w\|^2 -2\gamma_{\kappa}^2\|w\|^3\right).\]}
+					\[\left\|\mathcal{A}^{-1}f(y)\right\|\geq \sum\limits_{j=n-(\mu-2)}^n\left(\left(\frac{1}{2}\cos^2\varphi_{j}-2\gamma_{\kappa}\cos\varphi_j\sin\varphi_j-\gamma_{\kappa}\sin^2\varphi_j\right)\|w\|^2 -2\gamma_{\kappa}^2\|w\|^3\right).\]}
 				Let 
 				{\footnotesize
-					\[h(\varphi) = \frac{\cos^2 \varphi - 2\gamma_\kappa \cos\varphi \sin\varphi - \gamma_\kappa\sin^2\varphi}{4\gamma_\kappa^2}.\]}
+					\[h(\varphi) = \frac{\cos^2 \varphi - 4\gamma_\kappa \cos\varphi \sin\varphi - 2\gamma_\kappa\sin^2\varphi}{4\gamma_\kappa^2}.\]}
 				We claim that 
 				\[h(\theta)\geq \frac{\sin\theta}{\gamma_\kappa}.\]
 				Since $\sin\theta=\frac{d}{\gamma_\kappa}$, it is enough to show that
 				{\footnotesize
 					\begin{equation}\label{eq:h_inequality}
-					\left(1-\frac{d^2}{\gamma_\kappa^2}\right)-2d\sqrt{1-\frac{d^2}{\gamma_\kappa^2}}-\frac{d^2}{\gamma_\kappa}-4d\geq 0.
+					\left(1-\frac{d^2}{\gamma_\kappa^2}\right)-4d\sqrt{1-\frac{d^2}{\gamma_\kappa^2}}-2\frac{d^2}{\gamma_\kappa}-4d\geq 0.
 					\end{equation}}
-				For any fixed value of $d\in \left[0,\frac{1}{2}\right]$, the function of $\gamma_\kappa$ in (\ref{eq:h_inequality}) is increasing when $\gamma_\kappa\geq 1$. Therefore, it suffices to check this inequality is true for $\gamma_\kappa=1$. Since, $d\approx 0.158921$ is the smallest positive root of
-				\[(1-d^2)-2d\sqrt{1-d^2}-d^2-4d\]
+				For any fixed value of $d\in \left[0,\frac{1}{2}\right]$, the function of $\gamma_\kappa$ in (\ref{eq:h_inequality}) is increasing when $\gamma_\kappa\geq 1$. Therefore, it suffices to check this inequality is true for $\gamma_\kappa=1$. Since, $d\approx 0.120031$ is the smallest positive root of
+				\[(1-d^2)-4d\sqrt{1-d^2}-2d^2-4d\]
 				which lies in $\left[0,\frac{1}{2}\right]$, we have $h(\theta)\geq\frac{\sin\theta}{\gamma_\kappa}$.
 				
 				Moreover, since $\gamma_\kappa\geq 1$, we have $\sin \theta \leq d$, and so $\theta \leq \arcsin d$. Since $h(\varphi)$ is nonnegative and decreasing for $\varphi\in \left[0,\arcsin d\right]$, if $0\leq \varphi \leq \theta$, then $h(\varphi)\geq h(\theta)\geq\frac{\sin \theta}{\gamma_\kappa}$. Therefore, by lemma \ref{lem:sinIneq} and \ref{lem:inverseOperatorLowerbound},
